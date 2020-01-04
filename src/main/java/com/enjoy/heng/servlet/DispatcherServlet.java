@@ -68,9 +68,8 @@ public class DispatcherServlet extends HttpServlet{
 		String path = uri.replace(context, "");
 		
 		Method method = (Method)handMap.get(path);
-		
-		//TODO ？？？
-		HengController instance = (HengController) beans.get("/"+path.split("/")[1]);
+
+		Object instance = beans.get("/"+path.split("/")[1]);
 		//处理器-策略模式
 		HandToolsService hand = (HandToolsService) beans.get("hengHandTool");
 		
